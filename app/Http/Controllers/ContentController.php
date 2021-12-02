@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\Content;
+
+class ContentController extends Controller
+{
+    public function indexview(){
+        return view('index');
+    }
+    public function add(Request $request){
+        $this->validate($request, Content::$rules);
+        $form=$request->all();
+        Content::create($form);
+        return redirect('/');
+    }
+}
