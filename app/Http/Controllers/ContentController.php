@@ -10,10 +10,14 @@ class ContentController extends Controller
     public function indexview(){
         return view('index');
     }
-    public function add(Request $request){
+    public function create(Request $request){
         $this->validate($request, Content::$rules);
         $form=$request->all();
         Content::create($form);
-        return redirect('/');
+        return redirect('/todo/create');
+    }
+    public function createview(){
+        $contents=Content::all();
+        return view('create',['contents'=>$contents]);
     }
 }
