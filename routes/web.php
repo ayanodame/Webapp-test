@@ -17,3 +17,5 @@ use App\Http\Controllers\ContentController;
 Route::get('/',[ContentController::class,'indexview']);
 Route::post('/',[ContentController::class,'create']);
 Route::get('/todo/create',[ContentController::class,'createview']);
+Route::post('/todo/update',[ContentController::class,'update']);
+Route::get('/todo/update',[ContentController::class,'updateview']);

@@ -84,8 +84,6 @@
   <button>追加</button>
 </div>
 </form>
-<form action="/todo/create">
-@csrf
 <div class="TodoList_table">
 <table>
   <tr>
@@ -94,23 +92,28 @@
     <th>更新</th>
     <th>削除</th>
   </tr>
-  @foreach($contents as $content)
   <tr>
+  @foreach($contents as $content)
   <td>
     {{$content->created_at}}
   </td>
   <td>
+    <form action="/todo/update" method="post">
+    @csrf
     <input type="text" name="content" value="{{$content->content}}">
   </td>
   <td>
     <button class="TodoList_button_update">更新</button>
+    </form>
   </td>
   <td>
+    <form action="/todo/delete" method="post">
+    @csrf
     <button class="TodoList_button_delete">削除</button>
+    </form>
   </td>
   </tr>
-  @endforeach
+@endforeach
 </table>
 </div>
-</form>
 @endsection

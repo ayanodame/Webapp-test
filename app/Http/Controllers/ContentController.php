@@ -20,4 +20,15 @@ class ContentController extends Controller
         $contents=Content::all();
         return view('create',['contents'=>$contents]);
     }
+    public function updateview(){
+        $contents=Content::all();
+        return view('update',['contents'=>$contents]);
+    }
+    public function update(Request $request){
+        $this->validate($request,Content::$rules);
+        $form=$request->all();
+        unset($form['_token']);
+        Content::where('content',$request->content)->update($form);
+        return redirect('/todo/update');
+    }
 }
