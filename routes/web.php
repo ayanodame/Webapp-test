@@ -19,3 +19,5 @@ Route::post('/',[ContentController::class,'create']);
 Route::get('/todo/create',[ContentController::class,'createview']);
 Route::post('/todo/update',[ContentController::class,'update']);
 Route::get('/todo/update',[ContentController::class,'updateview']);
+Route::get('/todo/delete',[ContentController::class,'deleteview']);
+Route::post('/todo/delete',[ContentController::class,'delete']);
