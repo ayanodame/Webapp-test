@@ -28,7 +28,7 @@ class ContentController extends Controller
         $this->validate($request,Content::$rules);
         $form=$request->all();
         unset($form['_token']);
-        Content::where('content',$request->content)->update($form);
+        Content::where('id',$request->id)->update($form);
         return redirect('/todo/update');
     }
 }

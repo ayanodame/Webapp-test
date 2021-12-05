@@ -101,6 +101,7 @@
     <form action="/todo/update" method="post">
     @csrf
     <input type="text" name="content" value="{{$content->content}}">
+    <input type="hidden" name="id" value="{{$content->id}}">
   </td>
   <td>
     <button class="TodoList_button_update">更新</button>
